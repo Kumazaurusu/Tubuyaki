@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form method="post" action="/save" th:object="${book}">
+	
+	<p>名前:
+		
+	<input id = "name" type="text"   name="name" th:field ="*{name}">
+	<span th:errors="${book.name}" th:text="${book.name}"></span>
+
+	</p>
+	<p>
+	内容:
+		
+	
+		<input id = "tai" type="text"   name="naiyou" th:field ="*{naiyou}">
+		<span th:errors="${book.naiyou}" th:text="${book.naiyou}"></span>
+	</p>
+
+	<p>
+	日時:
+		
+	
+		<input id = "tai" type="date"   th:name="date" th:field="*{date}" th:value="${#dates.format(date,'yyyy/MM/dd')}">
+		<span th:errors="${book.date}">[[${book.date}]]</span>
+	</p>
+	<input type="submit" value="保存">
+</body>
+</html>
